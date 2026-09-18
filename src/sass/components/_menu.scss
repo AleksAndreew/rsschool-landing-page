@@ -1,0 +1,165 @@
+.hidden{
+    display: none;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    text-align: center;
+}
+.container_h2{
+    width: 60%;
+    @include maedia-tablet{
+        width: 100%;
+         }
+}
+.tabs{
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+    & p{
+        margin: 0px;
+        padding: 0px;
+    }
+    @include media-mobile{
+        gap: 6px;
+    }
+}
+
+.tab_menu{
+    width: auto;
+    height: 46px;
+    border: 1px solid $color-border-light;
+    border-radius: 100px;
+    padding: 8px 16px 8px 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    @extend %font;
+    @include font(16px, normal, 600, 150%);
+    color: $color-text-dark;
+ &:hover{
+    @media (hover:hover){
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+    background-color: $color-background-container;
+    color: $color-text-light;
+}
+    & .circle{
+     background-color: $color-background-body;
+    }
+
+  }
+}
+.tab_menu.checked{
+    cursor:default;
+    background-color: $color-background-container;
+    @extend %font;
+    @include font(16px, normal, 600, 150%);
+    color: $color-text-light;
+  & .circle{
+   background-color: $color-background-body;
+  }
+}
+.circle{
+width: 30px;
+height: 30px;
+border-radius: 100px;
+background-color: $color-border-light;
+padding: 3px 7px;
+display: flex;
+  & img{
+    display: block;
+    margin: auto;
+  }
+}
+.item{
+    width: 310px;
+    height: 506px;
+    border-radius: 40px;
+    border: 1px solid $color-border-light;
+    text-align: left;
+    position: relative;
+    & p{
+        color: $color-text-dark;
+        @extend %font-p;
+        padding-left: 20px;
+        padding-top: 12px;
+        padding-right: 20px;
+    }
+    & h3{
+        color: $color-text-dark;
+        @extend %font-h3;
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+    & h3:last-child{
+        position: absolute;
+        bottom: 20px;
+    }
+    & div{
+        width: 310px;
+        height: 310px;
+        border-radius: 40px;
+        @extend %background;
+    }
+    &:hover div{
+        @extend %hover;
+        }
+        @include maedia-tablet{
+            pointer-events: none;
+             }
+        @include media-mobile{
+            pointer-events: none;
+        }
+}
+.m2{
+    @include maedia-tablet{
+        display: none;
+           }
+}
+.items{
+    margin-top: 40px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    @include maedia-tablet{
+        margin-bottom: 40px;
+         }
+}
+.rotate{
+    @include maedia-tablet{
+    width: 60px;
+    height: 60px;
+    background-image: url(../images/icons/rotate.svg);
+    margin-bottom: 100px;
+    }
+}
+.coffee-1{
+    background-image: url(..//images/coffee-1.png);
+}
+.coffee-2{
+    background-image: url(..//images/coffee-2.png);
+}
+.coffee-3{
+    background-image: url(..//images/coffee-3.png);
+}
+.coffee-4{
+    background-image: url(..//images/coffee-4.png);
+}
+.coffee-5{
+    background-image: url(..//images/coffee-5.png);
+}
+.coffee-6{
+    background-image: url(..//images/coffee-6.png);
+}
+.coffee-7{
+    background-image: url(..//images/coffee-7.png);
+}
+.coffee-8{
+    background-image: url(..//images/coffee-8.png);
+}

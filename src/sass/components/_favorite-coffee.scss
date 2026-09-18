@@ -1,0 +1,102 @@
+.favorite-coffee{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 100px ;
+    align-items: center;
+    position: relative;
+    & h2{
+      @include maedia-tablet{
+        text-align: center;
+       }
+    }
+}
+.container_favorite{
+width: 480px;
+display: flex;
+flex-direction: column;
+padding: 40px 0px 0px;
+align-items: center;
+gap: 16px;
+  & p{
+    @extend %font-p;
+    color: $color-text-dark;
+    text-align: center;
+  }
+  & h3{
+    @extend %font-h3;
+    color: $color-text-dark;
+  }
+  & img{
+    height: 480px;
+    margin-bottom: 4px;
+    @include media-mobile{
+      height: 348px;
+     }
+  }
+  @include media-mobile{
+    width: 348px;
+   }
+}
+.left{
+  width: 60px;
+  height: 60px;
+  background-image: url(../images/icons/left.svg);
+  position: absolute;
+  left: 3px;
+  top: 405px;
+  transition: all 1s ease-in-out;
+  &:hover{
+    @media (hover:hover){
+    cursor: pointer;
+    background-image: url(../images/icons/left_h.svg);
+    transition: all 1s ease-in-out;
+    }
+  }
+  @include maedia-tablet{
+    top: 480px;
+    pointer-events: none;
+   }
+   @include media-mobile{
+    display: none;
+   }
+}
+.right{
+  width: 60px;
+  height: 60px;
+  background-image: url(../images/icons/right.svg);
+  position: absolute;
+  right: 3px;
+  top: 405px;
+  transition: all 1s ease-in-out;
+
+  &:hover{
+    @media (hover:hover){
+    cursor: pointer;
+    background-image: url(../images/icons/right_h.svg);
+    transition: all 1s ease-in-out;
+    }
+  }
+  @include maedia-tablet{
+    top: 480px;
+    pointer-events: none;
+   }
+   @include media-mobile{
+    display: none;
+   }
+}
+.slider_markers{
+    margin-top: 40px;
+    display: flex;
+    gap: 12px;
+    justify-content: space-around;
+}
+.slider_marker{
+    height: 4px;
+    width: 40px;
+    background-color: $color-border-light;
+    border-radius: 100px;
+}
+
+.checked{
+    background-color: $color-border-dark;
+}
