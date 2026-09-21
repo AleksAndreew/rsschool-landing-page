@@ -1287,6 +1287,7 @@ a {
 }
 
 .item {
+  cursor: pointer;
   width: 310px;
   height: 506px;
   border-radius: 40px;
@@ -1321,6 +1322,9 @@ a {
   width: 310px;
   height: 310px;
   border-radius: 40px;
+}
+.item:hover div {
+  cursor: pointer;
 }
 @media (max-width: 768px) {
   .item {
