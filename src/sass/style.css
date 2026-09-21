@@ -38,6 +38,16 @@ html {
   background-color: #E1D4C9;
   overflow-x: hidden;
 }
+@media (prefers-color-scheme: light) {
+  html {
+    background-color: #E1D4C9;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    background: #0d202d;
+  }
+}
 @media (max-width: 768px) {
   html {
     overflow-x: hidden;
@@ -47,6 +57,18 @@ html {
   html {
     overflow-x: hidden;
   }
+}
+
+:root {
+  --color-background: $color-background-body;
+}
+
+:root[data-color-scheme=dark] {
+  --color-background: #0d202d;
+}
+
+body {
+  background-color: var(--color-background);
 }
 
 body {
@@ -458,6 +480,19 @@ header {
   justify-content: space-between;
 }
 
+#theme_button {
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #E1D4C9;
+}
+
+:root[data-color-scheme=dark] #theme_button {
+  background-color: #0d202d;
+  border-color: #3d352d;
+  color: #E1D4C9;
+}
+
 .nav_menu {
   display: flex;
   gap: 40px;
@@ -701,7 +736,6 @@ a {
 
 .enjoy {
   margin-top: 20px;
-  padding: 0px 0px 100px;
   border-radius: 40px;
   width: auto;
   height: auto;
@@ -716,26 +750,30 @@ a {
 }
 
 .enjoy_background {
-  position: absolute;
+  background-image: url(../images/img-hero.png);
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   padding: 100px;
-  /* @include maedia-tablet{
-       padding: 100px 60px;
-       background-repeat: no-repeat;
-       background-size: cover ;
-      }
-      @include media-mobile{
-       padding: 60px 16px;
-       background-size: cover ;
-       background-repeat: no-repeat;
-      }*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (max-width: 768px) {
+  .enjoy_background {
+    padding: 100px 60px;
+  }
+}
+@media (max-width: 380px) {
+  .enjoy_background {
+    padding: 60px 16px;
+  }
 }
 
 .enjoy_text {
   transition: all 1s ease;
-  width: 48%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -743,12 +781,7 @@ a {
 }
 @media (max-width: 768px) {
   .enjoy_text {
-    width: auto;
-  }
-}
-@media (max-width: 380px) {
-  .enjoy_text {
-    width: auto;
+    width: 100%;
   }
 }
 .enjoy_text p {

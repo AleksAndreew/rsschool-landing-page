@@ -1,86 +1,99 @@
-.logo{
+.logo {
     background-image: url(../images/logo.png);
     background-size: 100%;
     width: 100px;
     height: 60px;
 }
-header{
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.nav_menu{
+
+#theme_button {
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: $color-background-body;
+}
+
+:root[data-color-scheme="dark"] #theme_button {
+    background-color: #0d202d;
+    border-color: #3d352d;
+    color: $color-text-light;
+}
+.nav_menu {
     display: flex;
     gap: 40px;
     padding: 0px;
     font-family: Inter;
     @include font(16px, normal, 600, 150%);
     color: $color-text-dark;
-    @include maedia-tablet{
-     display: none;
+    @include maedia-tablet {
+        display: none;
     }
 }
-.menu_header{
+.menu_header {
     position: relative;
     transition: all;
     display: inline-block;
     & a {
-    text-decoration: none;
-    font-family: Inter;
-    @include font(16px, normal, 600, 150%);
-    color: $color-text-dark;
+        text-decoration: none;
+        font-family: Inter;
+        @include font(16px, normal, 600, 150%);
+        color: $color-text-dark;
     }
-    &::after{
-    content: url(../images/icons/coffee-cup.svg);
-    width: 20px;
-    height: 20px;
-    margin-left: 8px;
-      }
-      &::before{
-        content: '';
+    &::after {
+        content: url(../images/icons/coffee-cup.svg);
+        width: 20px;
+        height: 20px;
+        margin-left: 8px;
+    }
+    &::before {
+        content: "";
         height: 2px;
         width: 100%;
         transform: scaleX(0);
         position: absolute;
         left: 0;
-        bottom:0;
+        bottom: 0;
         background-color: $color-border-dark;
         transform-origin: bottom center;
-        transition: transform .5s ease-out;
-      }
-      &:hover::before{
-        @media (hover:hover){
-        transform: scaleX(1);
-        transform-origin: bottom center;
+        transition: transform 0.5s ease-out;
+    }
+    &:hover::before {
+        @media (hover: hover) {
+            transform: scaleX(1);
+            transform-origin: bottom center;
         }
-      }
-    @include maedia-tablet{
+    }
+    @include maedia-tablet {
         display: none;
-       }
+    }
 }
-.inactive::before{
-  content: '';
-  height: 2px;
-  width: 100%;
-  transform: scaleX(1);
-  position: absolute;
-  left: 0;
-  bottom:0;
-  background-color: $color-border-dark;
+.inactive::before {
+    content: "";
+    height: 2px;
+    width: 100%;
+    transform: scaleX(1);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: $color-border-dark;
 }
-.nav_menu a{
-   text-decoration: none;
-   font-family: Inter;
+.nav_menu a {
+    text-decoration: none;
+    font-family: Inter;
     @include font(16px, normal, 600, 150%);
     color: $color-text-dark;
- }
- .nav_menu li{
+}
+.nav_menu li {
     list-style-type: none;
     cursor: default;
- }
- .circle_m{
+}
+.circle_m {
     display: none;
-    @include maedia-tablet{
+    @include maedia-tablet {
         width: 44px;
         height: 44px;
         border-radius: 200px;
@@ -88,14 +101,14 @@ header{
         display: flex;
         align-items: center;
         justify-content: center;
-        & .lines{
+        & .lines {
             width: 18px;
             height: 10px;
             border-top: 2px solid $color-border-dark;
             border-bottom: 2px solid $color-border-dark;
         }
-       }
-       @include media-mobile{
+    }
+    @include media-mobile {
         width: 44px;
         height: 44px;
         border-radius: 200px;
@@ -103,12 +116,11 @@ header{
         display: flex;
         align-items: center;
         justify-content: center;
-        & .lines{
+        & .lines {
             width: 18px;
             height: 10px;
             border-top: 2px solid $color-border-dark;
             border-bottom: 2px solid $color-border-dark;
         }
-       }
-
- }
+    }
+}
