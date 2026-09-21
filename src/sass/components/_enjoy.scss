@@ -36,6 +36,9 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 40px;
+  :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
   @include maedia-tablet {
     width: 100%;
   }
@@ -45,6 +48,9 @@
     @include font(16px, normal, 400, 150%);
     color: $color-text-light;
     margin: 0px;
+    :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
   }
 
   & button {
@@ -58,6 +64,9 @@
     transition: all 1s ease;
     @include font(16px, normal, 600, 150%);
     color: $color-text-dark;
+    :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
   }
   & button:hover {
     @media (hover: hover) {

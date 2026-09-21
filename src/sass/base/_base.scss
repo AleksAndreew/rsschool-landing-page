@@ -3,10 +3,10 @@ html {
    transition: all;
    background-color: $color-background-body;
    overflow-x: hidden;
-   @media (prefers-color-scheme: light) {
+   @media (prefers-theme: light) {
       background-color: $color-background-body;
    }
-   @media (prefers-color-scheme: dark) {
+   @media (prefers-theme: dark) {
       background: #0d202d;
    }
    @include maedia-tablet {
@@ -20,14 +20,12 @@ html {
 :root {
    --color-background: $color-background-body;
 }
-:root[data-color-scheme="dark"] {
+:root[data-theme="dark"] {
    --color-background: #0d202d;
-}
-body {
-   background-color: var(--color-background);
 }
 
 body {
+    background-color: var(--color-background);
    transition: all;
    margin: 0px;
    overflow-x: hidden;
@@ -56,6 +54,9 @@ h1 {
    @extend %font;
    @include font(72px, normal, 600, 105%);
    color: $color-text-light;
+   :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
    margin: 0px;
    & span {
       color: $color-text-accent;
@@ -73,6 +74,9 @@ h2 {
    @extend %font;
    @include font(60px, normal, 600, 125%);
    color: $color-text-dark;
+   :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
    margin: 0px;
    & span {
       color: $color-text-accent;

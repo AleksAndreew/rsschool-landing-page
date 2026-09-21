@@ -8,6 +8,16 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Menu</title>
     <script src="src/js/theme.js" defer></script>
+    <script>
+    (function () {
+      const STORAGE_KEY = "theme";
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const systemDark = window.matchMedia &&
+                         window.matchMedia("(prefers-theme: dark)").matches;
+      const scheme = saved || (systemDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", scheme);
+    })();
+  </script>
 </head>
 
 <body>
@@ -27,8 +37,6 @@
             </nav>
             <div class="headrer1">
                 <button id="theme_button" aria-label="Переключить тему" aria-pressed="false">
-                    <span class="theme-toggle__icon theme-toggle__icon--sun">☀</span>
-                    <span class="theme-toggle__icon theme-toggle__icon--moon">☾</span>
                 </button>
                 <div class="menu_header inactive">
                     <a href="menu.html">Menu</a>

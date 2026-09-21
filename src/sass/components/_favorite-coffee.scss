@@ -21,10 +21,16 @@ gap: 16px;
     @extend %font-p;
     color: $color-text-dark;
     text-align: center;
+    :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
   }
   & h3{
     @extend %font-h3;
     color: $color-text-dark;
+    :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
   }
   & img{
     height: 480px;
