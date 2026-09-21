@@ -1,0 +1,91 @@
+html {
+   scroll-behavior: smooth;
+   transition: all;
+   background-color: $color-background-body;
+   overflow-x: hidden;
+   @media (prefers-theme: light) {
+      background-color: $color-background-body;
+   }
+   @media (prefers-theme: dark) {
+      background: #0d202d;
+   }
+   @include maedia-tablet {
+      overflow-x: hidden;
+   }
+   @include media-mobile {
+      overflow-x: hidden;
+   }
+}
+
+:root {
+   --color-background: $color-background-body;
+}
+:root[data-theme="dark"] {
+   --color-background: #0d202d;
+}
+
+body {
+    background-color: var(--color-background);
+   transition: all;
+   margin: 0px;
+   overflow-x: hidden;
+   @include maedia-tablet {
+      overflow-x: hidden;
+   }
+   @include media-mobile {
+      overflow-x: hidden;
+   }
+}
+.wrapper {
+   max-width: $content-width;
+   margin: auto;
+   margin-top: 0px;
+   padding: 20px 40px 40px;
+   box-sizing: border-box;
+   @include maedia-tablet {
+      max-width: $tablet-width;
+   }
+   @include media-mobile {
+      padding: 20px 16px 40px;
+   }
+}
+
+h1 {
+   @extend %font;
+   @include font(72px, normal, 600, 105%);
+   color: $color-text-light;
+   :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
+   margin: 0px;
+   & span {
+      color: $color-text-accent;
+      font-style: italic;
+   }
+   @media screen and (max-width: 500px) {
+      @include font(42px, normal, 600, 115%);
+   }
+   @include media-mobile {
+      @include font(42px, normal, 600, 115%);
+   }
+}
+
+h2 {
+   @extend %font;
+   @include font(60px, normal, 600, 125%);
+   color: $color-text-dark;
+   :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
+   margin: 0px;
+   & span {
+      color: $color-text-accent;
+      font-style: italic;
+   }
+   @media screen and (max-width: 500px) {
+      @include font(32px, normal, 600, 115%);
+   }
+   @include media-mobile {
+      @include font(32px, normal, 600, 125%);
+   }
+}

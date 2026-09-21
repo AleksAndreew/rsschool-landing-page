@@ -1,0 +1,76 @@
+.container_about{
+    display: flex;
+    padding-top: 40px;
+    gap: 40px;
+    @include maedia-tablet{
+        flex-direction: column;
+        }
+}
+
+.big{
+    height: 590px;
+    width: 100%;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    @include maedia-tablet{
+        background-repeat: no-repeat;
+        background-size: auto;
+        pointer-events: none;
+        }
+    @include media-mobile{
+        background-repeat: no-repeat;
+        background-size: auto;
+        pointer-events: none;
+    }
+}
+.small{
+    width: 100%;
+    height: 430px;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    @include maedia-tablet{
+        display: none;
+        }
+}
+
+.about_left, .about_right{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 50%;
+    @include maedia-tablet{
+       flex-wrap: wrap;
+       width: auto;
+       }
+}
+
+.about-1{
+    background-image: url(../images/about-1.png);
+    @extend %background;
+    &:hover{
+    @extend %hover;
+    }
+}
+.about-2{
+    background-image: url(../images/about-2.png);
+    @extend %background;
+    &:hover{
+    @extend %hover;
+    }
+}
+
+.about-3{
+    background-image: url(../images/about-3.png);
+    @extend %background;
+    &:hover{
+    @extend %hover;
+    }
+}
+
+.about-4{
+    background-image: url(../images/about-4.png);
+    @extend %background;
+    &:hover{
+    @extend %hover;
+    }
+}

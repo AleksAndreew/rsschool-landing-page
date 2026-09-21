@@ -1,0 +1,92 @@
+.enjoy {
+  margin-top: 20px;
+  border-radius: 40px;
+  width: auto;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  & #myVideo {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.enjoy_background {
+  background-image: url(../images/img-hero.png);
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include maedia-tablet {
+    padding: 100px 60px;
+  }
+  @include media-mobile {
+    padding: 60px 16px;
+  }
+}
+.enjoy_text {
+  transition: all 1s ease;
+  width: clamp(48%, 100%, 100%);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 40px;
+  :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
+  @include maedia-tablet {
+    width: 100%;
+  }
+
+  & p {
+    font-family: Inter;
+    @include font(16px, normal, 400, 150%);
+    color: $color-text-light;
+    margin: 0px;
+    :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
+  }
+
+  & button {
+    position: relative;
+    width: 200px;
+    padding: 20px 78px;
+    border-radius: 100px;
+    background-color: $color-background-body;
+    border: none;
+    font-family: Inter;
+    transition: all 1s ease;
+    @include font(16px, normal, 600, 150%);
+    color: $color-text-dark;
+    :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
+  }
+  & button:hover {
+    @media (hover: hover) {
+      cursor: pointer;
+      transition: all 1s ease;
+    }
+  }
+  & button::after {
+    @media (hover: hover) {
+      transition: all 1s ease;
+    }
+  }
+  & button:hover:after {
+    @media (hover: hover) {
+      cursor: pointer;
+      content: url(../images/icons/coffee-cup.svg);
+      transition: all 1s ease;
+      position: absolute;
+      top: 21px;
+      right: 50px;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+.mobile_app{
+display: flex;
+gap: 100px;
+padding: 100px 0px;
+align-items: center;
+@include maedia-tablet{
+    flex-wrap: wrap;
+    }
+    @include media-mobile{
+        flex-direction: column;
+     gap: 35px;
+    }
+}
+
+.mobile_left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    gap: 40px;
+& p{
+    @extend %font-p;
+    color: $color-text-dark;
+    display: inline-block;
+    & span{
+        @include font(10px, normal, 600, 140%);
+        margin: 0px;
+        padding: 0px;
+    }
+  }
+}
+.mobile_right, .mobile_left {
+    width: 50%;
+    display: flex;
+    @include maedia-tablet{
+        flex-wrap: wrap;
+        width: auto;
+        }
+        @include media-mobile{
+            flex-wrap: wrap;
+            width: auto;
+            }
+}
+.mobile_right{
+    & img{
+        max-width: 100%;
+    }
+    @include maedia-tablet{
+        & img{
+            max-width: auto;
+        }
+        display: flex;
+        padding-left: 30px;
+        padding-top: 5px;
+        }
+        @include media-mobile{
+            & img{
+                width: auto;
+            }
+            display: flex;
+            padding: 0px;
+        }
+}
+
+.buttons_app{
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+@include media-mobile{
+flex-direction: column;
+}
+}
+
+.app_store, .google_play{
+width: 200px;
+height: 60px;
+border-radius: 100px;
+background-color: $color-background-body;
+border: 1px solid $color-border-dark;
+@include font(16px, normal, 600, 150%);
+@extend %font;
+position: relative;
+transition: all 1s ease-in-out;
+ & svg{
+ position: absolute;
+ left: 20px;
+ top: 12px;
+ }
+& span{
+    @include font(10px, normal, 600, 140%);
+    margin: 0px;
+    padding: 0px;
+}
+ &:hover{
+    @media (hover:hover){
+    cursor: pointer;
+  background-color: $color-background-container;
+  color: $color-text-light;
+  transition: all 1s ease-in-out;
+  & .svg_btn{
+    fill: $color-background-body;
+    transition: all 1s ease-in-out;
+ }
+ }
+}
+ @include maedia-tablet{
+    pointer-events: none;
+     }
+@include media-mobile{
+    pointer-events: none;
+}
+ @include media-mobile{
+           height: 66px;
+  }
+}

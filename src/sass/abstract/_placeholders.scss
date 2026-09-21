@@ -1,0 +1,25 @@
+%font{
+    font-family: Inter;
+}
+
+%font-p{
+    font-family: Inter;
+    @include font(16px, normal, 400, 150%);
+    margin: 0px;
+}
+
+%font-h3{
+    font-family: Inter;
+    @include font(24px, normal, 600, 125%);
+    margin: 0px;
+}
+
+%background{
+    background-size: 110%;
+    background-position: center;
+    transition: all 1s ease-in-out;
+}
+%hover{
+    transition: all 1s ease-in-out;
+    background-size: 100%;
+  }

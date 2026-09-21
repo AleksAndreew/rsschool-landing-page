@@ -1,0 +1,142 @@
+.logo {
+    background-image: url(../images/logo.png);
+    background-size: 100%;
+    width: 100px;
+    height: 60px;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#theme_button {
+    border: none;
+    cursor: pointer;
+    background-color: $color-background-body;
+}
+
+:root[data-theme="dark"] #theme_button {
+    background-color: #0d202d;
+    border-color: #3d352d;
+    color: $color-text-light;
+}
+.nav_menu {
+    display: flex;
+    gap: 40px;
+    padding: 0px;
+    font-family: Inter;
+    @include font(16px, normal, 600, 150%);
+    color: $color-text-dark;
+    :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
+    @include maedia-tablet {
+        display: none;
+    }
+}
+.menu_header {
+    position: relative;
+    transition: all;
+    display: inline-block;
+    & a {
+        text-decoration: none;
+        font-family: Inter;
+        @include font(16px, normal, 600, 150%);
+        color: $color-text-dark;
+        :root[data-theme="dark"] & {
+         color: $color-text-accent;
+  }
+    }
+    &::after {
+        content: url(../images/icons/coffee-cup.svg);
+        width: 20px;
+        height: 20px;
+        margin-left: 8px;
+    }
+    &::before {
+        content: "";
+        height: 2px;
+        width: 100%;
+        transform: scaleX(0);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: $color-border-dark;
+        transform-origin: bottom center;
+        transition: transform 0.5s ease-out;
+    }
+    &:hover::before {
+        @media (hover: hover) {
+            transform: scaleX(1);
+            transform-origin: bottom center;
+        }
+    }
+    @include maedia-tablet {
+        display: none;
+    }
+}
+.inactive::before {
+    content: "";
+    height: 2px;
+    width: 100%;
+    transform: scaleX(1);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: $color-border-dark;
+}
+.nav_menu a {
+    text-decoration: none;
+    font-family: Inter;
+    @include font(16px, normal, 600, 150%);
+    color: $color-text-dark;
+    :root[data-theme="dark"] & {
+    color: $color-text-accent;
+  }
+}
+.nav_menu li {
+    list-style-type: none;
+    cursor: default;
+}
+.circle_m {
+    display: none;
+    @include maedia-tablet {
+        width: 44px;
+        height: 44px;
+        border-radius: 200px;
+        border: 1px solid $color-border-dark;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & .lines {
+            width: 18px;
+            height: 10px;
+            border-top: 2px solid $color-border-dark;
+            border-bottom: 2px solid $color-border-dark;
+        }
+    }
+    @include media-mobile {
+        width: 44px;
+        height: 44px;
+        border-radius: 200px;
+        border: 1px solid $color-border-dark;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & .lines {
+            width: 18px;
+            height: 10px;
+            border-top: 2px solid $color-border-dark;
+            border-bottom: 2px solid $color-border-dark;
+        }
+    }
+}
+
+.headrer1{
+ @include maedia-tablet {
+    display: flex;
+    flex-direction: row;
+    row-gap: 10px;
+ }
+}
