@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 .tab_menu.checked, .tab_menu, .app_store, .google_play, h2, h1 {
   font-family: Inter;
@@ -82,6 +83,10 @@ body {
   body {
     overflow-x: hidden;
   }
+}
+
+.no-scroll {
+  overflow-y: hidden;
 }
 
 .wrapper {
@@ -474,17 +479,20 @@ template {
   box-sizing: border-box;
 }
 
+/* ================= HEADER ================= */
+header {
+  position: relative; /* точка отсчёта для выпадающего меню и оверлея */
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .logo {
   background-image: url(../images/logo.png);
   background-size: 100%;
   width: 100px;
   height: 60px;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 #theme_button {
@@ -502,7 +510,8 @@ header {
 .nav_menu {
   display: flex;
   gap: 40px;
-  padding: 0px;
+  padding: 0;
+  margin: 0;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -512,10 +521,40 @@ header {
 }
 :root[data-theme=dark] .nav_menu {
   color: #B0907A;
+  --color-background: #0d202d;
 }
 @media (max-width: 768px) {
   .nav_menu {
-    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 8px 0;
+    background-color: #E1D4C9;
+  }
+  :root[data-theme=dark] .nav_menu {
+    background-color: #0d202d;
+  }
+  .nav_menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  }
+  .nav_menu li {
+    width: 100%;
+    text-align: center;
+  }
+  .nav_menu a {
+    display: block;
+    padding: 12px 20px;
   }
 }
 
@@ -523,6 +562,11 @@ header {
   position: relative;
   transition: all;
   display: inline-block;
+}
+@media (max-width: 768px) {
+  .menu_header {
+    display: none;
+  }
 }
 .menu_header a {
   text-decoration: none;
@@ -560,11 +604,6 @@ header {
     transform-origin: bottom center;
   }
 }
-@media (max-width: 768px) {
-  .menu_header {
-    display: none;
-  }
-}
 
 .inactive::before {
   content: "";
@@ -597,42 +636,76 @@ header {
 
 .circle_m {
   display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 200px;
+  border: 1px solid #665F55;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.circle_m .lines {
+  position: relative;
+  width: 18px;
+  height: 12px;
+}
+.circle_m .lines::before, .circle_m .lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #665F55;
+  transition: top 0.3s ease, bottom 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+.circle_m .lines::before {
+  top: 0;
+}
+.circle_m .lines::after {
+  bottom: 0;
 }
 @media (max-width: 768px) {
   .circle_m {
-    width: 44px;
-    height: 44px;
-    border-radius: 200px;
-    border: 1px solid #665F55;
     display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .circle_m .lines {
-    width: 18px;
-    height: 10px;
-    border-top: 2px solid #665F55;
-    border-bottom: 2px solid #665F55;
   }
 }
-@media (max-width: 380px) {
-  .circle_m {
-    width: 44px;
-    height: 44px;
-    border-radius: 200px;
-    border: 1px solid #665F55;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (hover: hover) {
+  .circle_m:hover {
+    border-color: #B0907A;
   }
-  .circle_m .lines {
-    width: 18px;
-    height: 10px;
-    border-top: 2px solid #665F55;
-    border-bottom: 2px solid #665F55;
+  .circle_m:hover .lines::before,
+  .circle_m:hover .lines::after {
+    background-color: #B0907A;
   }
 }
 
+header.menu-open .circle_m .lines::before {
+  top: 5px;
+  transform: rotate(45deg);
+}
+header.menu-open .circle_m .lines::after {
+  bottom: 5px;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  header.menu-open::after {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  /* выезд панели */
+  header.menu-open .nav_menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
 @media (max-width: 768px) {
   .headrer1 {
     display: flex;

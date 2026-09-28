@@ -8,16 +8,17 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Menu</title>
     <script src="src/js/theme.js" defer></script>
+    <script src="src/js/burger.js" defer></script>
     <script>
-    (function () {
-      const STORAGE_KEY = "theme";
-      const saved = localStorage.getItem(STORAGE_KEY);
-      const systemDark = window.matchMedia &&
-                         window.matchMedia("(prefers-theme: dark)").matches;
-      const scheme = saved || (systemDark ? "dark" : "light");
-      document.documentElement.setAttribute("data-theme", scheme);
-    })();
-  </script>
+        (function () {
+            const STORAGE_KEY = "theme";
+            const saved = localStorage.getItem(STORAGE_KEY);
+            const systemDark = window.matchMedia &&
+                window.matchMedia("(prefers-theme: dark)").matches;
+            const scheme = saved || (systemDark ? "dark" : "light");
+            document.documentElement.setAttribute("data-theme", scheme);
+        })();
+    </script>
 </head>
 
 <body>

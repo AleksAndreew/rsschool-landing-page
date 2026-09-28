@@ -1,13 +1,17 @@
+/* ================= HEADER ================= */
+header {
+    position: relative; /* точка отсчёта для выпадающего меню и оверлея */
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .logo {
     background-image: url(../images/logo.png);
     background-size: 100%;
     width: 100px;
     height: 60px;
-}
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 #theme_button {
@@ -21,39 +25,82 @@ header {
     border-color: #3d352d;
     color: $color-text-light;
 }
+
 .nav_menu {
     display: flex;
     gap: 40px;
-    padding: 0px;
+    padding: 0;
+    margin: 0;
     font-family: Inter;
     @include font(16px, normal, 600, 150%);
     color: $color-text-dark;
+
     :root[data-theme="dark"] & {
-    color: $color-text-accent;
-  }
+        color: $color-text-accent;
+        --color-background: #0d202d;
+    }
+
     @include maedia-tablet {
-        display: none;
+        position: absolute;
+        top: 110%;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+        width: 100%;
+        height: 100vh;
+        padding: 8px 0;
+        background-color: $color-background-body;
+        :root[data-theme="dark"] & {
+            background-color:  #0d202d;
+        }
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+
+        li {
+            width: 100%;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            padding: 12px 20px;
+        }
     }
 }
+
 .menu_header {
     position: relative;
     transition: all;
     display: inline-block;
+    @include maedia-tablet {
+        display: none;
+    }
     & a {
         text-decoration: none;
         font-family: Inter;
         @include font(16px, normal, 600, 150%);
         color: $color-text-dark;
         :root[data-theme="dark"] & {
-         color: $color-text-accent;
-  }
+            color: $color-text-accent;
+        }
     }
+
     &::after {
         content: url(../images/icons/coffee-cup.svg);
         width: 20px;
         height: 20px;
         margin-left: 8px;
     }
+
     &::before {
         content: "";
         height: 2px;
@@ -66,16 +113,15 @@ header {
         transform-origin: bottom center;
         transition: transform 0.5s ease-out;
     }
+
     &:hover::before {
         @media (hover: hover) {
             transform: scaleX(1);
             transform-origin: bottom center;
         }
     }
-    @include maedia-tablet {
-        display: none;
-    }
 }
+
 .inactive::before {
     content: "";
     height: 2px;
@@ -86,57 +132,115 @@ header {
     bottom: 0;
     background-color: $color-border-dark;
 }
+
 .nav_menu a {
     text-decoration: none;
     font-family: Inter;
     @include font(16px, normal, 600, 150%);
     color: $color-text-dark;
     :root[data-theme="dark"] & {
-    color: $color-text-accent;
-  }
+        color: $color-text-accent;
+    }
 }
+
 .nav_menu li {
     list-style-type: none;
     cursor: default;
 }
+
 .circle_m {
     display: none;
-    @include maedia-tablet {
-        width: 44px;
-        height: 44px;
-        border-radius: 200px;
-        border: 1px solid $color-border-dark;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        & .lines {
-            width: 18px;
-            height: 10px;
-            border-top: 2px solid $color-border-dark;
-            border-bottom: 2px solid $color-border-dark;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 200px;
+    border: 1px solid $color-border-dark;
+    background-color: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+
+    .lines {
+        position: relative;
+        width: 18px;
+        height: 12px;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            border-radius: 2px;
+            background-color: $color-border-dark;
+            transition:
+                top 0.3s ease,
+                bottom 0.3s ease,
+                transform 0.3s ease,
+                background-color 0.3s ease;
+        }
+
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
         }
     }
-    @include media-mobile {
-        width: 44px;
-        height: 44px;
-        border-radius: 200px;
-        border: 1px solid $color-border-dark;
+
+    @include maedia-tablet {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        & .lines {
-            width: 18px;
-            height: 10px;
-            border-top: 2px solid $color-border-dark;
-            border-bottom: 2px solid $color-border-dark;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            border-color: $color-text-accent;
+
+            .lines::before,
+            .lines::after {
+                background-color: $color-text-accent;
+            }
         }
     }
 }
 
-.headrer1{
- @include maedia-tablet {
-    display: flex;
-    flex-direction: row;
-    row-gap: 10px;
- }
+header.menu-open {
+    .circle_m .lines {
+        &::before {
+            top: 5px;
+            transform: rotate(45deg);
+        }
+        &::after {
+            bottom: 5px;
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+@include maedia-tablet {
+    header.menu-open::after {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    /* выезд панели */
+    header.menu-open .nav_menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
+
+.headrer1 {
+    @include maedia-tablet {
+        display: flex;
+        flex-direction: row;
+        row-gap: 10px;
+    }
 }
