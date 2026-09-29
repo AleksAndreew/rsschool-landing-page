@@ -1,4 +1,4 @@
-let currentCategory = "all";
+let currentCategory = "coffee";
 let allProducts = [];
 
 async function loadProducts() {
@@ -16,10 +16,7 @@ function renderProducts(category) {
     return;
   }
 
-  const products =
-    category === "all"
-      ? allProducts
-      : allProducts.filter((p) => p.category === category);
+  const products = allProducts.filter((p) => p.category === category);
 
   const counters = {};
 
