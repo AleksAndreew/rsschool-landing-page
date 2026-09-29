@@ -11,13 +11,17 @@
   }
 }
 .container_favorite {
-  width: 480px;
+  box-sizing: border-box;
+  width: min(100%, 480px);
+  max-width: 480px;
   display: flex;
   flex-direction: column;
   padding: 40px 0px 0px;
   align-items: center;
   gap: 16px;
   & p {
+    width: 100%;
+    text-align: center;
     @extend %font-p;
     color: $color-text-dark;
     text-align: center;
@@ -26,6 +30,8 @@
     }
   }
   & h3 {
+    width: 100%;
+    text-align: center;
     @extend %font-h3;
     color: $color-text-dark;
     :root[data-theme="dark"] & {
@@ -61,7 +67,6 @@
   }
   @include maedia-tablet {
     top: 480px;
-    pointer-events: none;
   }
   @include media-mobile {
     display: none;
@@ -85,19 +90,22 @@
   }
   @include maedia-tablet {
     top: 480px;
-    pointer-events: none;
   }
   @include media-mobile {
     display: none;
   }
 }
-
+.slider_viewport {
+  width: 100%;
+  overflow: hidden;
+}
 .slider {
   display: flex;
   width: 100%;
   transition: transform 0.4s ease;
-  position: relative;
+  will-change: transform;
 }
+
 .slider_wrapper {
   flex: 0 0 100%;
   width: 100%;
