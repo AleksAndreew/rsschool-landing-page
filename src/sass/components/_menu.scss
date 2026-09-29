@@ -1,33 +1,35 @@
-.hidden{
+.hidden {
     display: none;
 }
-.menu{
+.menu {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
     text-align: center;
 }
-.container_h2{
+.container_h2 {
     width: 60%;
-    @include maedia-tablet{
+    @include maedia-tablet {
         width: 100%;
-         }
+    }
 }
-.tabs{
+.tabs,
+.tabs_m {
     display: flex;
     gap: 16px;
     margin-top: 40px;
-    & p{
+    & p {
         margin: 0px;
         padding: 0px;
     }
-    @include media-mobile{
+    @include media-mobile {
         gap: 6px;
     }
 }
 
-.tab_menu{
+.tab_menu,
+.tab_menu_m {
     width: auto;
     height: 46px;
     border: 1px solid $color-border-light;
@@ -39,42 +41,42 @@
     @extend %font;
     @include font(16px, normal, 600, 150%);
     color: $color-text-dark;
- &:hover{
-    @media (hover:hover){
-    cursor: pointer;
-    transition: all 1s ease-in-out;
-    background-color: $color-background-container;
-    color: $color-text-light;
-}
-    & .circle{
-     background-color: $color-background-body;
+    &:hover {
+        @media (hover: hover) {
+            cursor: pointer;
+            transition: all 1s ease-in-out;
+            background-color: $color-background-container;
+            color: $color-text-light;
+        }
+        & .circle {
+            background-color: $color-background-body;
+        }
     }
-
-  }
 }
-.tab_menu.checked{
-    cursor:default;
+.tab_menu.checked,
+.tab_menu_m.checked {
+    cursor: default;
     background-color: $color-background-container;
     @extend %font;
     @include font(16px, normal, 600, 150%);
     color: $color-text-light;
-  & .circle{
-   background-color: $color-background-body;
-  }
+    & .circle {
+        background-color: $color-background-body;
+    }
 }
-.circle{
-width: 30px;
-height: 30px;
-border-radius: 100px;
-background-color: $color-border-light;
-padding: 3px 7px;
-display: flex;
-  & img{
-    display: block;
-    margin: auto;
-  }
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background-color: $color-border-light;
+    padding: 3px 7px;
+    display: flex;
+    & img {
+        display: block;
+        margin: auto;
+    }
 }
-.item{
+.item {
     cursor: pointer;
     width: 310px;
     height: 506px;
@@ -82,52 +84,46 @@ display: flex;
     border: 1px solid $color-border-light;
     text-align: left;
     position: relative;
-    & p{
+    & p {
         color: $color-text-dark;
         @extend %font-p;
         padding-left: 20px;
         padding-top: 12px;
         padding-right: 20px;
         :root[data-theme="dark"] & {
-         color: $color-text-accent;
-  }
+            color: $color-text-accent;
+        }
     }
-    & h3{
+    & h3 {
         color: $color-text-dark;
         :root[data-theme="dark"] & {
-    color: $color-text-accent;
-  }
+            color: $color-text-accent;
+        }
         @extend %font-h3;
         padding-top: 20px;
         padding-left: 20px;
     }
-    & h3:last-child{
+    & h3:last-child {
         position: absolute;
         bottom: 20px;
     }
-    & div{
+    & div {
         width: 310px;
         height: 310px;
         border-radius: 40px;
         @extend %background;
     }
-    &:hover div{
+    &:hover div {
         cursor: pointer;
         @extend %hover;
-        }
-        @include maedia-tablet{
-            pointer-events: none;
-             }
-        @include media-mobile{
-            pointer-events: none;
-        }
+    }
 }
-.m2{
-    @include maedia-tablet{
+.m2 {
+    @include maedia-tablet {
         display: none;
-           }
+    }
 }
-.items{
+.items {
     margin-top: 40px;
     margin-bottom: 100px;
     display: flex;
@@ -135,39 +131,162 @@ display: flex;
     gap: 40px;
     justify-content: center;
     align-items: center;
-    @include maedia-tablet{
+    @include maedia-tablet {
         margin-bottom: 40px;
-         }
-}
-.rotate{
-    @include maedia-tablet{
-    width: 60px;
-    height: 60px;
-    background-image: url(../images/icons/rotate.svg);
-    margin-bottom: 100px;
     }
 }
-.coffee-1{
+.rotate {
+    @include maedia-tablet {
+        width: 60px;
+        height: 60px;
+        background-image: url(../images/icons/rotate.svg);
+        margin-bottom: 100px;
+    }
+}
+.coffee-1 {
     background-image: url(..//images/coffee-1.png);
 }
-.coffee-2{
+.coffee-2 {
     background-image: url(..//images/coffee-2.png);
 }
-.coffee-3{
+.coffee-3 {
     background-image: url(..//images/coffee-3.png);
 }
-.coffee-4{
+.coffee-4 {
     background-image: url(..//images/coffee-4.png);
 }
-.coffee-5{
+.coffee-5 {
     background-image: url(..//images/coffee-5.png);
 }
-.coffee-6{
+.coffee-6 {
     background-image: url(..//images/coffee-6.png);
 }
-.coffee-7{
+.coffee-7 {
     background-image: url(..//images/coffee-7.png);
 }
-.coffee-8{
+.coffee-8 {
     background-image: url(..//images/coffee-8.png);
+}
+
+.tea-1 {
+    background-image: url(..//images/tea-1.png);
+}
+
+.tea-2 {
+    background-image: url(..//images/tea-2.png);
+}
+.tea-3 {
+    background-image: url(..//images/tea-3.png);
+}
+.tea-4 {
+    background-image: url(..//images/tea-4.png);
+}
+
+.dessert-1 {
+    background-image: url(..//images/dessert-1.png);
+}
+.dessert-2 {
+    background-image: url(..//images/dessert-2.png);
+}
+.dessert-3 {
+    background-image: url(..//images/dessert-3.png);
+}
+.dessert-4 {
+    background-image: url(..//images/dessert-4.png);
+}
+.dessert-5 {
+    background-image: url(..//images/dessert-5.png);
+}
+.dessert-6 {
+    background-image: url(..//images/dessert-6.png);
+}
+.dessert-7 {
+    background-image: url(..//images/dessert-7.png);
+}
+.dessert-8 {
+    background-image: url(..//images/dessert-8.png);
+}
+
+#productModal {
+    border: none;
+    border-radius: 5px;
+    padding: 0px;
+    background-color: $color-background-body;
+    border-radius: 35px;
+    & p {
+        color: black;
+    }
+}
+
+#productModal::backdrop {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    display: flex;
+    position: relative;
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column;
+    @include maedia-tablet {
+        flex-direction: column;
+    }
+    & div:first-child {
+        display: flex;
+        gap: 20px;
+    }
+}
+.modal-image {
+    flex: 0 0 310px; // не сжимается
+    width: 310px;
+    height: 310px;
+    border-radius: 40px;
+    @extend %background;
+}
+.modal-close {
+    width: 100%;
+    background-color: $color-background-body;
+    border: 1px solid black;
+    border-radius: 15px;
+    @include font(16px, normal, 600, 150%);
+    color: $color-text-dark;
+    cursor: pointer;
+    padding: 10px;
+    &:hover {
+        @media (hover: hover) {
+            cursor: pointer;
+            transition: all 1s ease-in-out;
+            background-color: $color-background-container;
+            color: $color-text-light;
+        }
+    }
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.modal_content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    & p {
+        margin: 0;
+        padding: 0;
+    }
+}
+.tabs_m {
+    margin: 0px;
+}
+
+.total {
+    display: flex;
+    padding: 0px 10px;
+    justify-content: space-between;
+    & #modalPrice {
+        margin: 0;
+    }
 }

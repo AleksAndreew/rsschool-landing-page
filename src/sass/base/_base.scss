@@ -25,7 +25,7 @@ html {
 }
 
 body {
-    background-color: var(--color-background);
+   background-color: var(--color-background);
    transition: all;
    margin: 0px;
    overflow-x: hidden;
@@ -36,6 +36,10 @@ body {
       overflow-x: hidden;
    }
 }
+.no-scroll {
+   overflow-y: hidden;
+}
+
 .wrapper {
    max-width: $content-width;
    margin: auto;
@@ -55,8 +59,8 @@ h1 {
    @include font(72px, normal, 600, 105%);
    color: $color-text-light;
    :root[data-theme="dark"] & {
-    color: $color-text-accent;
-  }
+      color: $color-text-accent;
+   }
    margin: 0px;
    & span {
       color: $color-text-accent;
@@ -75,8 +79,8 @@ h2 {
    @include font(60px, normal, 600, 125%);
    color: $color-text-dark;
    :root[data-theme="dark"] & {
-    color: $color-text-accent;
-  }
+      color: $color-text-accent;
+   }
    margin: 0px;
    & span {
       color: $color-text-accent;

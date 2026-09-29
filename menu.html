@@ -8,16 +8,18 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Menu</title>
     <script src="src/js/theme.js" defer></script>
+    <script src="src/js/burger.js" defer></script>
+    <script src="src/js/products.js" defer></script>
     <script>
-    (function () {
-      const STORAGE_KEY = "theme";
-      const saved = localStorage.getItem(STORAGE_KEY);
-      const systemDark = window.matchMedia &&
-                         window.matchMedia("(prefers-theme: dark)").matches;
-      const scheme = saved || (systemDark ? "dark" : "light");
-      document.documentElement.setAttribute("data-theme", scheme);
-    })();
-  </script>
+        (function () {
+            const STORAGE_KEY = "theme";
+            const saved = localStorage.getItem(STORAGE_KEY);
+            const systemDark = window.matchMedia &&
+                window.matchMedia("(prefers-theme: dark)").matches;
+            const scheme = saved || (systemDark ? "dark" : "light");
+            document.documentElement.setAttribute("data-theme", scheme);
+        })();
+    </script>
 </head>
 
 <body>
@@ -53,74 +55,26 @@
                     <h2>Behind each of our cups hides an <span>amazing surprise</span></h2>
                 </div>
                 <div class="tabs">
-                    <div class="tab_menu checked">
+                    <div class="tab_menu checked" data-category="coffee">
                         <div class="circle">
                             <img src=".//src/images/icons/Coffee.svg" alt="coffee">
                         </div>
                         Coffee
                     </div>
-                    <div class="tab_menu">
+                    <div class="tab_menu" data-category="tea">
                         <div class="circle">
                             <img src=".//src/images/icons/Tea.svg" alt="tea">
                         </div>
                         Tea
                     </div>
-                    <div class="tab_menu">
+                    <div class="tab_menu" data-category="dessert">
                         <div class="circle">
                             <img src=".//src/images/icons/Dessert.svg" alt="dessert">
                         </div>
                         Dessert
                     </div>
                 </div>
-                <div class="items">
-                    <div class="item">
-                        <div class="coffee-1"></div>
-                        <h3>Irish coffee</h3>
-                        <p>Fragrant black coffee with Jameson Irish whiskey and whipped milk</p>
-                        <h3>$7.00</h3>
-                    </div>
-                    <div class="item">
-                        <div class="coffee-2"></div>
-                        <h3>Kahlua coffee</h3>
-                        <p>Classic coffee with milk and Kahlua liqueur under a cap of frothed milk</p>
-                        <h3>$7.00</h3>
-                    </div>
-                    <div class="item">
-                        <div class="coffee-3"></div>
-                        <h3>Honey raf</h3>
-                        <p>Espresso with frothed milk, cream and aromatic honey</p>
-                        <h3>$5.50</h3>
-                    </div>
-                    <div class="item">
-                        <div class="coffee-4"></div>
-                        <h3>Ice cappuccino</h3>
-                        <p>Cappuccino with soft thick foam in summer version with ice</p>
-                        <h3>$5.00</h3>
-                    </div>
-                    <div class="item m2">
-                        <div class="coffee-5"></div>
-                        <h3>Espresso</h3>
-                        <p>Classic black coffee</p>
-                        <h3>$4.50</h3>
-                    </div>
-                    <div class="item m2">
-                        <div class="coffee-6"></div>
-                        <h3>Latte</h3>
-                        <p>Espresso coffee with the addition of steamed milk and dense milk foam</p>
-                        <h3>$5.50</h3>
-                    </div>
-                    <div class="item m2">
-                        <div class="coffee-7"></div>
-                        <h3>Latte macchiato</h3>
-                        <p>Espresso with frothed milk and chocolate</p>
-                        <h3>$5.50</h3>
-                    </div>
-                    <div class="item m2">
-                        <div class="coffee-8"></div>
-                        <h3>Coffee with cognac</h3>
-                        <p>Fragrant black coffee with cognac and whipped cream</p>
-                        <h3>$6.50</h3>
-                    </div>
+                <div class="items" id="items">
                 </div>
                 <div class="rotate"></div>
             </section>
@@ -191,7 +145,63 @@
             </div>
         </footer>
     </div>
-    <script src=".//src/index.js"></script>
+    <dialog id="productModal">
+        <div class="modal-content">
+            <div>
+                <div class="modal-image" id="modalImage"></div>
+                <div class="modal_content">
+                    <h2 id="modalName"></h2>
+                    <p id="modalDescription"></p>
+
+                    <p>Size</p>
+                    <div class="tabs_m">
+                        <div class="tab_menu_m checked">
+                            <div class="circle modal">
+                                S
+                            </div>
+                            200 ml
+                        </div>
+                        <div class="tab_menu_m">
+                            <div class="circle modal">
+                                M
+                            </div>
+                            300 ml
+                        </div>
+                        <div class="tab_menu_m">
+                            <div class="circle modal">
+                                L
+                            </div>
+                            400 ml
+                        </div>
+                    </div>
+                    <p>Additives</p>
+                    <div class="tabs_m">
+                        <div class="tab_menu_m">
+                            <div class="circle modal">
+                                1
+                            </div>
+                            Sugar
+                        </div>
+                        <div class="tab_menu_m">
+                            <div class="circle modal">
+                                2
+                            </div>
+                            Cinnamon
+                        </div>
+                        <div class="tab_menu_m">
+                            <div class="circle modal">
+                                3
+                            </div>
+                            Syrup
+                        </div>
+                    </div>
+                    <span class="total"> Total:<h3 id="modalPrice"></h3></span>
+                    <button class="modal-close" id="modalClose" aria-label="Close">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </dialog>
 </body>
 
 </html>
